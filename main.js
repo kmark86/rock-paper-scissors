@@ -7,4 +7,45 @@ function getComputerChoice(){
     return computerChoice
 }
 
-console.log(getComputerChoice())
+function playRound(playerSelection, computerSelection){
+    switch(computerSelection){
+        case "Rock":
+            if (playerSelection == "Rock"){
+                result = "Tied";
+            } else if (playerSelection == "Paper"){
+                result = "You Win! Paper beats Rock";
+            } else if (playerSelection == "Scissors"){
+                result = "You Lose! Rock beats Scissors";
+            } else {
+                result = "Error";
+            }
+            break;
+        case "Paper":
+            if (playerSelection == "Rock"){
+                result = "You Lose! Paper beats Rock";
+            } else if (playerSelection == "Paper"){
+                result = "Tied";
+            } else if (playerSelection == "Scissors"){
+                result = "You Win! Scissors beat Paper";
+            } else {
+                result = "Error";
+            }
+            break;
+        case "Scissors":
+            if (playerSelection == "Rock"){
+                result = "You Win! Rock beats Scissors";
+            } else if (playerSelection == "Paper"){
+                result = "You Lose! Scissors beat Paper";
+            } else if (playerSelection == "Scissors"){
+                result = "Tied";
+            } else {
+                result = "Error";
+            }
+            break;
+    }
+    return result
+}
+
+const playerSelection = "Rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection))
