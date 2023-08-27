@@ -1,3 +1,10 @@
+function makeCaseInsensitive(userInput){
+    firstLetter= userInput.charAt(0).toUpperCase()
+    remainingString= userInput.slice(1,userInput.length).toLowerCase()
+    newString = firstLetter + remainingString
+    return newString
+}
+
 function getComputerChoice(){
     var choiceArray = ['Rock','Paper','Scissors'];
     computerChoice = choiceArray[Math.floor(Math.random()*choiceArray.length)]; //choiceArray[x] x = 0,1,2
@@ -8,6 +15,10 @@ function getComputerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
+    //Clean user input
+    playerSelection = makeCaseInsensitive(playerSelection);
+
+    //Determine game result
     switch(computerSelection){
         case "Rock":
             if (playerSelection == "Rock"){
@@ -46,6 +57,6 @@ function playRound(playerSelection, computerSelection){
     return result
 }
 
-const playerSelection = "Rock";
+const playerSelection = "roCk";
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection))
+console.log(playRound(playerSelection, computerSelection));
