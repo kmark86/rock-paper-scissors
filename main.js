@@ -23,49 +23,73 @@ function playRound(playerSelection, computerSelection){
         case "Rock":
             if (playerSelection == "Rock"){
                 result = "Tied";
+                winner = "none";
             } else if (playerSelection == "Paper"){
                 result = "You Win! Paper beats Rock";
+                winner = "player";
             } else if (playerSelection == "Scissors"){
                 result = "You Lose! Rock beats Scissors";
+                winner = "computer";
             } else {
                 result = "Error";
+                winner = "none";
             }
             break;
         case "Paper":
             if (playerSelection == "Rock"){
                 result = "You Lose! Paper beats Rock";
+                winner = "computer";
             } else if (playerSelection == "Paper"){
                 result = "Tied";
+                winner = "none";
             } else if (playerSelection == "Scissors"){
                 result = "You Win! Scissors beat Paper";
+                winner = "player";
             } else {
                 result = "Error";
+                winner = "none";
             }
             break;
         case "Scissors":
             if (playerSelection == "Rock"){
                 result = "You Win! Rock beats Scissors";
+                winner = "player";
             } else if (playerSelection == "Paper"){
                 result = "You Lose! Scissors beat Paper";
+                winner = "computer";
             } else if (playerSelection == "Scissors"){
                 result = "Tied";
+                winner = "none";
             } else {
                 result = "Error";
+                winner = "none";
             }
             break;
     }
-    return result
+    console.log(result)
+    return winner
 }
 
 function newgame(){
     const playerSelection = prompt("Rock, Paper, or Scissors");
     const computerSelection = getComputerChoice();
-    return playRound(playerSelection, computerSelection);
+    winner = playRound(playerSelection, computerSelection);
+    return winner
 }
 
 function game(){
-    console.log(newgame());
-    console.log(newgame());
+    computerScore = 0;
+    playerScore = 0;
+    winner = newgame();
+    if (winner == "computer"){
+        computerScore++;
+    } else if (winner == "player"){
+        playerScore++;
+    } else {
+    }
+    
+    console.log(computerScore);
+    console.log(playerScore);
 }
 
 game()
